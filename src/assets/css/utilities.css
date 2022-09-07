@@ -1,0 +1,92 @@
+.marge1{
+    margin-left: 140px;
+    margin-top: 20px;
+    margin-right:30px;
+}
+.back1{
+    background-color: #10b7cb;
+    height: 200px;
+    width: 100%;
+    border-radius: 5px;
+}
+.inline-flex{
+    display: inline-flex;
+    column-gap: 20px;
+}
+.flex-between{
+    display: flex;
+    justify-content: space-between;
+}
+.size-2{
+    font-size: 25px;
+}
+.grid-2{
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    column-gap: 20px;
+}
+.grid-eq{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    color: 10px;
+}
+.grid-3{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    column-gap:20px;
+}
+.grid-4{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    column-gap:20px;
+}
+.flex-center{
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+    
+}
+.flex-2{
+    display: flex;
+    justify-content: space-between;
+}
+
+.box-center{
+    display: flex;
+    justify-content: center;
+}
+.space-bt{
+    display: flex;
+    justify-content: space-between;
+
+}
+.space-bt{
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+}
+.ui.button.col-base{
+    background-color: #2d3647;
+    color: #ffffff;
+}
+.ui.button.col-base:hover{
+    background-color: #353d4e;
+    color: #ffffff;
+}
+.marge2{
+    margin-left:110px;
+}
+
+@media screen and (max-width:900px) {
+    .grid-2 , .grid-3 , .grid-4{
+        grid-template-columns: 1fr;
+    }
+    .grid-2 div, .grid-3 div{
+        margin-top:10px;
+    }
+    .marge1{
+    margin-left: 20px;
+    margin-top: 20px;
+    margin-right:10px;
+}
+}

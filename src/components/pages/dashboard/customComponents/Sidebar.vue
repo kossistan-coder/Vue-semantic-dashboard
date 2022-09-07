@@ -7,31 +7,31 @@
         width="medium"
         borderless
         vertical
-        style="background-color: #0e7490;"
+        style="background-color: #2d3647;"
         >
             <sui-menu-item > 
                     <h2 is="sui-header" style="color:#ffffff">
-                        <img src="../assets/icon-save.png" alt="">
+                        <img src="../../../../../src/assets/images/icon-save.png" alt="">
                         easywire
                     </h2>
             </sui-menu-item>
-            <sui-menu-item>
-                <div class="color-white">
+            <sui-menu-item class="active">
+                <router-link  :to="{name:'overview'}" class="color-white ">
                     <sui-icon name="home"/>
                     Home
-                </div>
+                </router-link>
             </sui-menu-item>
-            <sui-menu-item>
-                <div class="color-white">
+            <sui-menu-item >
+                <router-link :to="{name:'subscription'}" class="color-white">
                     <sui-icon name="history"/>
-                    History
-                </div>
+                    Subscriptions
+                </router-link>
             </sui-menu-item>
             <sui-menu-item>
-                <div class="color-white">
+                <router-link :to="{name:'categories'}" class="color-white">
                     <sui-icon name="balance scale"/>
-                    Balances
-                </div>
+                    Categories
+                </router-link>
             </sui-menu-item>
             <sui-menu-item>
                 <div class="color-white">
@@ -39,36 +39,20 @@
                     Cards
                 </div>
             </sui-menu-item>
-            <sui-menu-item>
-                <div class="color-white">
-                    <sui-icon name="users"/>
-                    Recipients
-                </div>
-            </sui-menu-item>
-            <sui-menu-item>
-                <div class="color-white">
-                    <sui-icon name="file alternate outline"/>
-                    Reports
-                </div>
-            </sui-menu-item>
+         
             <hr class="trait">
             <sui-menu-item>
-                <div class="color-white">
+                <router-link :to="{name:'profile'}" class="color-white">
                     <sui-icon name="setting"/>
                     Settings
-                </div>
+                </router-link>
             </sui-menu-item>
+            
             <sui-menu-item>
-                <div class="color-white">
-                    <sui-icon name=" help"/>
-                    Reports
-                </div>
-            </sui-menu-item>
-            <sui-menu-item>
-                <div class="color-white">
+                <router-link :to="{name:'admins'}" class="color-white">
                     <sui-icon name="privacy"/>
-                    Reports
-                </div>
+                    Admins
+                </router-link>
             </sui-menu-item>
         </sui-menu>
     </div>
@@ -86,6 +70,9 @@
     }
     .color-white{
         color: white;
+    }
+    .color-white:hover{
+        color:white;
     }
     .trait{
         color: black;

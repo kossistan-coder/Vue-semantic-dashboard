@@ -1,16 +1,21 @@
 <template>
     <div class="marge1">
         <div>
-           <div is="sui-header">
-                Overview
-
+            <div>
+                <sui-breadcrumb size="big">
+                <sui-breadcrumb-section link>Account</sui-breadcrumb-section>
+                <sui-breadcrumb-divider>/</sui-breadcrumb-divider>
+                <sui-breadcrumb-section active>Overview</sui-breadcrumb-section>
+                </sui-breadcrumb>
             </div>
      </div>
      <br>
-        <div class="grid-3">
+     <br>
+     
+        <div class="grid-4">
             <div v-for="card in cards " v-bind:key="card.title" >
                 <div >
-                    <Card :icon="card.icon" :title="card.title" :sub="card.price"/>
+                    <Card :icon="card.icon" :title="card.title" :sub="card.price" :color="card.color"/>
                 </div>
             </div>
         </div>
@@ -41,7 +46,7 @@
                            <div>
                                <span style="margin-right:10px">{{item.price}}</span>
                                <span>
-                                    <a  class="ui tiny  button" style="background-color: #0e7490;color:#ffffff">Look</a>
+                                    <a  class="ui tiny  button" style="background-color: #2d3647;color:#ffffff">Look</a>
                             </span>
                            </div>
                      </div>
@@ -102,38 +107,60 @@
         
 
         <br>
-        <div>
+        <div class="flex-between">
            <div is="sui-header">
-                Recent Activity
+                Recent Box
 
             </div>
-     </div>
-     <br>
-        <div>
-            <sui-table unstackable>
-      <sui-table-header>
-        <sui-table-row>
-            <sui-table-header-cell text-align="left"
-            >Transaction</sui-table-header-cell
-          >
-          <sui-table-header-cell>Amount</sui-table-header-cell>
-          <sui-table-header-cell>Status</sui-table-header-cell>
-          <sui-table-header-cell>Date</sui-table-header-cell>
-          
-        </sui-table-row>
-      </sui-table-header>
-      <sui-table-body>
-        <sui-table-row>
-            <sui-table-cell text-align="left"><sui-icon name="address card outline"/>Payement to molly sanders</sui-table-cell>
-          <sui-table-cell>$200,000 USD</sui-table-cell>
-          <sui-table-cell><a  class="ui green circular label" style="opacity:0.7">success</a></sui-table-cell>
-          <sui-table-cell>July 11 , 2020</sui-table-cell>
-        </sui-table-row>
-        
-      </sui-table-body>
-    </sui-table>
-    <br>
+            <div>
+                View all
+            </div>
         </div>
+     <br>
+       <sui-card-group :items-per-row="3 ">
+        <sui-card>
+            <img src="../../../../../src/assets/images/maquette.webp" />
+            <sui-card-content>
+            <sui-card-header>Matt Giampietro</sui-card-header>
+            <sui-card-meta>Friends</sui-card-meta>
+            <sui-card-description>
+                Matthew is an interior designer living in New York.
+            </sui-card-description>
+            </sui-card-content>
+            <sui-card-content extra>
+            <sui-icon name="user" /> 75 Friends
+            <span slot="right">Joined in 2013</span>
+            </sui-card-content>
+      </sui-card>
+      <sui-card>
+            <img src="../../../../../src/assets/images/maquette2.webp" />
+            <sui-card-content>
+            <sui-card-header>Matt Giampietro</sui-card-header>
+            <sui-card-meta>Friends</sui-card-meta>
+            <sui-card-description>
+                Matthew is an interior designer living in New York.
+            </sui-card-description>
+            </sui-card-content>
+            <sui-card-content extra>
+            <sui-icon name="user" /> 75 Friends
+            <span slot="right">Joined in 2013</span>
+            </sui-card-content>
+      </sui-card>
+      <sui-card>
+            <img src="../../../../../src/assets/images/maquette1.webp" />
+            <sui-card-content>
+            <sui-card-header>Matt Giampietro</sui-card-header>
+            <sui-card-meta>Friends</sui-card-meta>
+            <sui-card-description>
+                Matthew is an interior designer living in New York.
+            </sui-card-description>
+            </sui-card-content>
+            <sui-card-content extra>
+            <sui-icon name="user" /> 75 Friends
+            <span slot="right">Joined in 2013</span>
+            </sui-card-content>
+      </sui-card>
+       </sui-card-group>
 
     </div>
 </template>
@@ -151,17 +178,26 @@
                   {
                       icon:"balance scale",
                       title:"Account balance",
-                      price:"$ 30,659.45"
+                      price:"$ 30,659",
+                      color:"#10b7cb"
                   },
                   {
                       icon:"sync alternate",
                       title:"Account balance",
-                      price:"$ 30,659.45"
+                      price:"$ 30,659.45",
+                      color:"#e12c6c"
+                  },
+                  {
+                      icon:"bookmark icon",
+                      title:"Account balance",
+                      price:"$ 30,659.45",
+                      color:"#54ad58"
                   },
                   {
                       icon:"check ",
                       title:"Account balance",
-                      price:"$ 30,659.45"
+                      price:"$ 30,6",
+                      color:"#fd9810"
                   }
               ],
               items:[
@@ -200,50 +236,4 @@
       }
 
 </script>
-<style>
-    .marge1{
-        margin-left: 120px;
-        margin-top: 20px;
-        margin-right:10px;
-    }
-    .grid-2{
-        display: grid;
-        grid-template-columns: 2fr 1fr;
-        column-gap: 20px;
-    }
-    .grid-3{
-        display: grid;
-        grid-template-columns: 1fr 1fr 1fr;
-        column-gap:20px;
-    }
-    .flex-center{
-        display: flex;
-        justify-content: space-between;
-        text-align: center;
-        
-    }
-
-    .box-center{
-        display: flex;
-        justify-content: center;
-    }
-    .space-bt{
-        display: flex;
-        justify-content: space-between;
-  
-    }
-
-    @media screen and (max-width:900px) {
-        .grid-2 , .grid-3{
-            grid-template-columns: 1fr;
-        }
-        .grid-2 div, .grid-3 div{
-            margin-top:10px;
-        }
-        .marge1{
-        margin-left: 20px;
-        margin-top: 20px;
-        margin-right:10px;
-    }
-    }
-</style>
+<style src="../../../../assets/css/utilities.css"></style>
