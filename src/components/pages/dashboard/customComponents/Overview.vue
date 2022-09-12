@@ -1,6 +1,6 @@
 <template>
     <div class="marge1">
-        <div>
+        <div class="flex-2">
             <div>
                 <sui-breadcrumb size="big">
                 <sui-breadcrumb-section link>Account</sui-breadcrumb-section>
@@ -8,29 +8,34 @@
                 <sui-breadcrumb-section active>Overview</sui-breadcrumb-section>
                 </sui-breadcrumb>
             </div>
+            <div class="inline">
+                <div class="ui  button" style="background-color:white;">
+                    Statictiques                                    
+                </div>
+                <div class="ui button col-base">
+                    Admins
+                </div>
+            
+            </div>
      </div>
      <br>
-     <br>
-     
+
+        <CardShimmerVue></CardShimmerVue>
         <div class="grid-4">
             <div v-for="card in cards " v-bind:key="card.title" >
                 <div >
-                    <Card :icon="card.icon" :title="card.title" :sub="card.price" :color="card.color"/>
+                    <Card :icon="card.icon" :title="card.title" :sub="card.price" :color="card.color" :angle="card.angle" />
                 </div>
             </div>
         </div>
         <br>
-        <div>
-           <div is="sui-header">
-                Packs
-
-            </div>
-        </div>
-        <br>
+    
      <div class="grid-2">
          <div>
              <sui-segment>
-                 <div v-for="item in items" v-bind:key="item.header">
+                <PacksShimmer></PacksShimmer>
+  
+                 <!-- <div v-for="item in items" v-bind:key="item.header">
                      <div class="space-bt" style="align-items:baseline">
                            <div>
                                <div is="sui-header">
@@ -52,53 +57,113 @@
                      </div>
                      <sui-divider section />
                      
-                 </div>
+                 </div> -->
                  
              </sui-segment>
          </div>
          <div>
-            <sui-segment >
-                <div>
-                <div is="sui-header">
-                    Your invest
-                    <sui-header-subheader>
-                    Manage your account settings and 
-                    </sui-header-subheader>
-                </div>
-                <br>
-                </div>
-            <div class="box-center">
-                <vue-ellipse-progress
-            :angle="-90"
-            color="#0e7490"
-            :colorFill="colorFillGradient"
-            :legend="true"
-            :legendValue="180"
-            :progress="progress"
-            
-           
-            :loading="true"
-            >
-            <span slot="legend-value" >/200</span>
-            <p slot="legend-caption">GOOD JOB</p>
-            </vue-ellipse-progress>
-            </div>
-                <sui-divider section />
-                <div class="text-center">
-                    <span>
-                        <a class="ui blue empty circular label"></a>
-                        Mobile
-                    </span>
-                    <span style="margin-left:10px">
-                        <a class="ui purple empty circular label"></a>
-                        Desktop
-                    </span>
-                    <span style="margin-left:10px">
-                        <a class="ui teal empty circular label"></a>
-                        Tablet
-                    </span>
-                </div>
-            </sui-segment>
+           <sui-segment>
+            <div>
+                            <div class="flex-2">
+                            <div>
+                                <h2 class="ui small header">
+                                <img src="../../../../../src/assets/images/go.png" class="ui circular image">
+                                <div class="content">
+                                    Kamara laye
+                                    <div class="sub header">kamara@gmail.com</div>
+                                </div>
+                            </h2>
+                            </div>
+                            <div>
+                                <div class="ui circular basic label">
+                                    
+                                    Details
+                                </div>
+                            </div>
+                        </div>
+                        <div class="ui divider"></div>
+                    </div>
+                    <div>
+                            <div class="flex-2">
+                            <div>
+                                <h2 class="ui small header">
+                                <img src="../../../../../src/assets/images/go.png" class="ui circular image">
+                                <div class="content">
+                                    Kamara laye
+                                    <div class="sub header">kamara@gmail.com</div>
+                                </div>
+                            </h2>
+                            </div>
+                            <div>
+                                <div class="ui circular basic label">
+                                    
+                                    Details
+                                </div>
+                            </div>
+                        </div>
+                        <div class="ui divider"></div>
+                    </div>                  
+                    <div>
+                            <div class="flex-2">
+                            <div>
+                                <h2 class="ui small header">
+                                <img src="../../../../../src/assets/images/go.png" class="ui circular image">
+                                <div class="content">
+                                    Kamara laye
+                                    <div class="sub header">kamara@gmail.com</div>
+                                </div>
+                            </h2>
+                            </div>
+                            <div>
+                                <div class="ui circular basic label">
+                                    
+                                    Details
+                                </div>
+                            </div>
+                        </div>
+                        <div class="ui divider"></div>
+                    </div>
+                    <div>
+                            <div class="flex-2">
+                            <div>
+                                <h2 class="ui small header">
+                                <img src="../../../../../src/assets/images/go.png" class="ui circular image">
+                                <div class="content">
+                                    Kamara laye
+                                    <div class="sub header">kamara@gmail.com</div>
+                                </div>
+                            </h2>
+                            </div>
+                            <div>
+                                <div class="ui circular basic label">
+                                    
+                                    Details
+                                </div>
+                            </div>
+                        </div>
+                        <div class="ui divider"></div>
+                    </div>
+                    <div>
+                            <div class="flex-2">
+                            <div>
+                                <h2 class="ui small header">
+                                <img src="../../../../../src/assets/images/go.png" class="ui circular image">
+                                <div class="content">
+                                    Kamara laye
+                                    <div class="sub header">kamara@gmail.com</div>
+                                </div>
+                            </h2>
+                            </div>
+                            <div>
+                                <div class="ui circular basic label">
+                                    
+                                    Details
+                                </div>
+                            </div>
+                        </div>
+                        <div class="ui divider"></div>
+                    </div>
+           </sui-segment>
          </div>
      </div>
      <br>
@@ -117,7 +182,8 @@
             </div>
         </div>
      <br>
-       <sui-card-group :items-per-row="3 ">
+     <ImageCardShimmer></ImageCardShimmer>
+       <!-- <sui-card-group :items-per-row="3 ">
         <sui-card>
             <img src="../../../../../src/assets/images/maquette.webp" />
             <sui-card-content>
@@ -160,15 +226,22 @@
             <span slot="right">Joined in 2013</span>
             </sui-card-content>
       </sui-card>
-       </sui-card-group>
+       </sui-card-group> -->
 
     </div>
 </template>
 
 <script>
     import Card from  './Card.vue'
+    //import CardShimmerVue from './CardShimmer.vue';
+    import ImageCardShimmer from './ImageCardShimmer.vue'
+    import PacksShimmer from './packsShimmer.vue'
     export default {
         components:{
+         
+             // CardShimmerVue,
+              PacksShimmer,
+              ImageCardShimmer,
               Card
           },
       data(){
@@ -179,25 +252,29 @@
                       icon:"balance scale",
                       title:"Account balance",
                       price:"$ 30,659",
-                      color:"#10b7cb"
+                      color:"#10b7cb",
+                      angle:100
                   },
                   {
                       icon:"sync alternate",
                       title:"Account balance",
                       price:"$ 30,659.45",
-                      color:"#e12c6c"
+                      color:"#e12c6c",
+                      angle:59
                   },
                   {
                       icon:"bookmark icon",
                       title:"Account balance",
                       price:"$ 30,659.45",
-                      color:"#54ad58"
+                      color:"#54ad58",
+                      angle:43
                   },
                   {
                       icon:"check ",
                       title:"Account balance",
                       price:"$ 30,6",
-                      color:"#fd9810"
+                      color:"#fd9810",
+                      angle:180
                   }
               ],
               items:[

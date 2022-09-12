@@ -14,23 +14,43 @@
       <sui-menu-menu position="right">
         <sui-menu-item >
          <div style="background-color:#f3f4f6 ; padding:12px;border-radius:20px">
-            <sui-input  icon="search" placeholder="Search..." transparent/>
+            <sui-input  icon="search" placeholder="Search..." @click="combobox" transparent/>
          </div>
         </sui-menu-item>
         <sui-menu-item>
-            <sui-dropdown icon="bell outline">
-                <i class="dropdown icon" style="margin-left:-3px"></i>
-                 <sui-dropdown-menu>
-                        <sui-dropdown-item>Settings</sui-dropdown-item>
-                        <sui-dropdown-item>Manage apps</sui-dropdown-item>
-                        <sui-dropdown-item>Help</sui-dropdown-item>
-                </sui-dropdown-menu>
-            </sui-dropdown>
+            <!-- <div >
+                    <a class=" active item" style="padding-right:10px;padding-top: 10px;">
+                        <i class="icon bell"></i>
+                        <div class="floating ui tiny circular red label" >9</div>
+                    </a>
+                   
+                </div> -->
+                <VBadge :empty="true" :icon="'bell outline icon'" >
+
+                </VBadge>
+            
+        </sui-menu-item>
+        <sui-menu-item>
+            <i class="user outline icon"></i>
         </sui-menu-item>
         
     </sui-menu-menu>
     </sui-menu>
-    
+    <sui-modal v-model="open" size=" tiny" basic style="padding-bottom:70vh;">
+        <sui-search :source="source" fluid>
+    <template v-slot:input="{ props, handlers }" >
+      <sui-input
+        v-model="input"
+        size="fluid"
+        v-bind="props"
+        v-on="handlers"
+        icon="search"
+        placeholder="Common passwords..."
+        @select="change"
+      />
+    </template>
+  </sui-search>
+    </sui-modal>
 
     <!-- <sui-segment attached="bottom">
       <div class="space-bt">
@@ -64,12 +84,34 @@
     </div>
 </template>
 <script>
+    import VBadge from './V-Badge.vue';
 export default {
+    components:{
+        VBadge ,
+    },
+    data() {
+        return {
+            open : false ,
+            input:"",
+            source:[
+            { title: 'Andorra' , value:1},
+        { title: 'United Arab Emirates' ,value:3},
+        { title: 'Afghanistan' , value:0},
+      
+            ]
+        }
+    },
     methods: {
         showToast(){
             this.$toast.open({
                 message : 'You have new notification',
             })
+        },
+        combobox(){
+            this.open = !this.open ;
+        },
+        change(){
+          alert(this.input);
         }
     },
 }

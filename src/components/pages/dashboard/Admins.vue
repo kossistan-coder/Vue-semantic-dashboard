@@ -26,21 +26,38 @@
       <td class="right aligned">
         <div class="inline">
             
-            <div class="ui icon button blue" @click="toggle">
+            <div class="ui icon button basic blue" @click="toggle">
                  <i class="ui edit icon"></i>
                  
             </div>
-            <div class="ui icon button green">
+            <div class="ui icon button basic green">
                  <i class="ui eye icon"></i>
             </div>
-            <div class="ui icon button red">
+            <div class="ui icon button basic red">
                  <i class="ui trash icon"></i>
             </div>
         </div>
       </td>
     </tr>
     
+    
   </tbody>
+  <tfoot>
+    <tr><th colspan="5">
+      <div class="ui right floated pagination menu">
+        <a class="icon item">
+          <i class="left chevron icon"></i>
+        </a>
+        <a class="item">1</a>
+        <a class="item">2</a>
+        <a class="item">3</a>
+        <a class="item">4</a>
+        <a class="icon item">
+          <i class="right chevron icon"></i>
+        </a>
+      </div>
+    </th>
+  </tr></tfoot>
 
         </table>
         <sui-modal v-model="open" style="position:absolute;padding-bottom:200px;" onDeny="">

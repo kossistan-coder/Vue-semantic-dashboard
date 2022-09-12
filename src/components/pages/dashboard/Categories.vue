@@ -43,7 +43,8 @@
         <sui-table-header-cell>N .</sui-table-header-cell>
         <sui-table-header-cell>Nom</sui-table-header-cell>
         <sui-table-header-cell>Nbre d'abonnements</sui-table-header-cell>
-        <sui-table-header-cell text-align="right">description</sui-table-header-cell>
+        <sui-table-header-cell >description</sui-table-header-cell>
+        <sui-table-header-cell></sui-table-header-cell>
       </sui-table-row>
     </sui-table-header>
     <sui-table-body>
@@ -53,12 +54,31 @@
         </sui-table-cell>
         <sui-table-cell>Vin</sui-table-cell>
         <sui-table-cell>25</sui-table-cell>
-        <sui-table-cell text-align="right">
-            Lorrem ipsun                                
+        <sui-table-cell >
+            lorem ...                            
+        </sui-table-cell>
+        <sui-table-cell >
+            <router-link style="color: blue ;" to="/dashboard">Détails</router-link>                         
         </sui-table-cell>
       </sui-table-row>
       
     </sui-table-body>
+    <tfoot>
+    <tr><th colspan="5">
+      <div class="ui right floated pagination menu">
+        <a class="icon item">
+          <i class="left chevron icon"></i>
+        </a>
+        <a class="item">1</a>
+        <a class="item">2</a>
+        <a class="item">3</a>
+        <a class="item">4</a>
+        <a class="icon item">
+          <i class="right chevron icon"></i>
+        </a>
+      </div>
+    </th>
+  </tr></tfoot>
   </sui-table>
         </div>
         

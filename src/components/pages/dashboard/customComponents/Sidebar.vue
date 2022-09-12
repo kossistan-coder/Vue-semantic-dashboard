@@ -24,7 +24,7 @@
             <sui-menu-item >
                 <router-link :to="{name:'subscription'}" class="color-white">
                     <sui-icon name="history"/>
-                    Subscriptions
+                    Abonnements utilisateurs 
                 </router-link>
             </sui-menu-item>
             <sui-menu-item>
@@ -34,10 +34,16 @@
                 </router-link>
             </sui-menu-item>
             <sui-menu-item>
-                <div class="color-white">
+                <router-link :to="{name:'sellers'}" class="color-white">
                     <sui-icon name="address card"/>
-                    Cards
-                </div>
+                    Vendeurs
+                </router-link>
+            </sui-menu-item>
+            <sui-menu-item>
+                <router-link :to="{name:'produits'}" class="color-white">
+                    <sui-icon name=" briefcase "/>
+                    Produits
+                </router-link>
             </sui-menu-item>
          
             <hr class="trait">

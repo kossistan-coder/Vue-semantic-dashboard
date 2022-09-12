@@ -6,12 +6,21 @@ import Admin from './components/pages/dashboard/Admins.vue'
 import Overview from './components/pages/dashboard/customComponents/Overview.vue'
 import Subscription from './components/pages/dashboard/Subscription.vue'
 import Categories from './components/pages/dashboard/Categories.vue'
+import Sellers from './components/pages/dashboard/Sellers.vue'
+import Products from './components/pages/dashboard/Products.vue'
+import Login from './components/pages/dashboard/login.vue'
 
 Vue.use(VueRouter)
 
 let routes = [
+    {
+        path:'/',
+        component:Login,
+        name:'login'
+    },
 
     {
+        
         path:'/account',
         component:Index,
         children:[
@@ -39,6 +48,16 @@ let routes = [
                 path:'/account/categories',
                 component:Categories,
                 name:'categories'
+            },
+            {
+                path:'/account/sellers',
+                component:Sellers,
+                name:'sellers'
+            },
+            {
+                path:'/account/produits',
+                component:Products,
+                name:'produits'
             }
         ]
     }

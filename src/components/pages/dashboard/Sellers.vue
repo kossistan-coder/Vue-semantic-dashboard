@@ -7,14 +7,15 @@
                 <sui-breadcrumb size="big">
                 <sui-breadcrumb-section link>Account</sui-breadcrumb-section>
                 <sui-breadcrumb-divider>/</sui-breadcrumb-divider>
-                <sui-breadcrumb-section active>Abonnements</sui-breadcrumb-section>
+                <sui-breadcrumb-section active>Vendeurs</sui-breadcrumb-section>
                 </sui-breadcrumb>
             </div>
             </div>
             <div>
-                <sui-dropdown
+                <div class="inline">
+                    <sui-dropdown
                 
-                    text="Par categories"
+                    text="Filtrer par"
                     icon="filter"
                     floating
                     labeled
@@ -26,6 +27,11 @@
                     :search-in-menu="searchInMenu"
                     :options="options"
                 />
+                <div class="ui  col-base icon button " @click="toggle">
+                    <i class="add icon"></i>
+                    Ajouter un vendeur
+                </div>
+                </div>
             </div>
         </div>
         <br>
@@ -33,43 +39,41 @@
             <sui-table single-line>
     <sui-table-header>
       <sui-table-row>
-        <sui-table-header-cell></sui-table-header-cell>
-        <sui-table-header-cell>Image</sui-table-header-cell>
-        <sui-table-header-cell>Type d'abonnements</sui-table-header-cell>
-        <sui-table-header-cell>Propriétaire</sui-table-header-cell>
-        <sui-table-header-cell text-align="right">Admin assigné</sui-table-header-cell>
-        <sui-table-header-cell text-align="right"></sui-table-header-cell>
+       
+        <sui-table-header-cell>label</sui-table-header-cell>
+        <sui-table-header-cell>Nom</sui-table-header-cell>
+        <sui-table-header-cell>Numero</sui-table-header-cell>
+        <sui-table-header-cell >email</sui-table-header-cell>
+        <sui-table-header-cell text-align="right">Site du vendeur</sui-table-header-cell>
+        
       </sui-table-row>
     </sui-table-header>
     <sui-table-body>
       <sui-table-row v-for="i in 5" :key="i">
+      
         <sui-table-cell>
-            <sui-checkbox />
-        </sui-table-cell>
-        <sui-table-cell>
-            <img src="../../../assets/images/img1.jpg" alt="" style="width:40px;height:40px;border-radius: 100%;">
+            <a class="ui circular label" :class="options[i-1].label.color">N</a>
         </sui-table-cell>
         <sui-table-cell>September 14, 2013 </sui-table-cell>
-        <sui-table-cell>jhlilk22@yahoo.com</sui-table-cell>
-        <sui-table-cell text-align="right">
-            <div class="ui buttons">
-                <div class="ui left labeled icon button">
-                <i class="user icon"></i>
-                pierre ahoble
-            </div>
-            <div class="ui icon col-base button" @click="toggle">
-                <i class="edit icon"></i>
-            </div>
-            </div>
-        </sui-table-cell>
+        <sui-table-cell>+228 89477444</sui-table-cell>
         <sui-table-cell>
-            <router-link to="">Details</router-link>
+            <div>kossise@gmail.com</div>
         </sui-table-cell>
+        <sui-table-cell text-align="right">
+            <div class="ui action input">
+                <input type="text" value="http://ww.short.url/c0opq">
+                <button class="ui icon button">
+                    <i class="copy icon"></i>
+                    
+                </button>
+            </div>
+        </sui-table-cell>
+       
       </sui-table-row>
       
     </sui-table-body>
     <tfoot>
-    <tr><th colspan="6">
+    <tr><th colspan="5">
       <div class="ui right floated pagination menu">
         <a class="icon item">
           <i class="left chevron icon"></i>
@@ -86,40 +90,62 @@
   </tr></tfoot>
   </sui-table>
         </div>
-        <div >
-            <sui-modal size="small" v-model="open" style="position:absolute;padding-bottom:200px;" dimmerClick>
-            <sui-modal-content image>
-                <img src="../../../assets/images/img1.jpg" alt="" class="ui medium image" style="border-radius:5px">
-                <sui-modal-description>
-          <sui-header>Default Profile Image</sui-header>
-          <p>
-            We've found the following gravatar image associated with your e-mail
-            address.
-          </p>
-          <p>Is it okay to use this photo?</p>
-          <sui-dropdown
-                
-                    text="Assigner un admin"
-                    icon="filter"
-                    floating
-                    labeled
-                    button
-                   
-                    class="icon"
-                    v-model="selectedAdmin"
-                    :menu-header="menuHeader"
-                    :search-in-menu="searchInMenu"
-                    :options="admins"
-                />
+        <div>
+
+            <sui-modal v-model="open" style="position:absolute;padding-bottom:200px;" onDeny="">
+      <sui-modal-header>Ajouter un vendeur</sui-modal-header>
+      <sui-modal-content image>
+      
+        <sui-modal-description>
+            <sui-form>
+                            <sui-header divinding>
+                                Remplir vos informations
+                            </sui-header>
+                            <sui-form-field>
+                                <label>Name</label>
+                                <sui-form-fields fields="two">
+                                    <sui-form-field>
+                                    <input
+                                        type="text"
+                                        name="shipping[first-name]"
+                                        placeholder="First Name"
+                                    />
+                                    </sui-form-field>
+                                    <sui-form-field>
+                                    <input
+                                        type="text"
+                                        name="shipping[last-name]"
+                                        placeholder="Last Name"
+                                    />
+                                    </sui-form-field>
+                                </sui-form-fields>
+                            </sui-form-field>
+                            <sui-form-field>
+                                <label>Billing Address</label>
+                                <sui-form-fields>
+                                    <sui-form-field width="twelve">
+                                    <input
+                                        type="text"
+                                        name="shipping[address]"
+                                        placeholder="Street Address"
+                                    />
+                                    </sui-form-field>
+                                    <sui-form-field width="four">
+                                        <sui-dropdown
+                                            placeholder="Role"
+                                            selection
+                                            :options="role"
+                                            v-model="current"
+                                        />
+                                    </sui-form-field>
+                                    </sui-form-fields>
+                                </sui-form-field>
+                                <a  class="ui col-base button" @click="showToast">Update profile</a>
+                        </sui-form>
         </sui-modal-description>
-        
-            </sui-modal-content>
-            <sui-modal-actions>
-        <sui-button color="blue" @click.native="assign">
-            Valider
-        </sui-button>
-      </sui-modal-actions>
-        </sui-modal>
+      </sui-modal-content>
+   
+    </sui-modal>
         </div>
     </div>
 </template>

@@ -4,9 +4,23 @@
             <div class="ui segment" style="padding-bottom:40px">
                 <div class="flex-2">
                     <div>
-                        <div class="ui raised segment" v-bind:style="{backgroundColor: color , borderColor: color ,marginTop : '-35px',paddingTop:'25px',paddingBottom:'25px'}">
-                            <sui-icon :name="icon" size="big" style="color:white"></sui-icon>
-                        </div>
+                        <vue-ellipse-progress
+            :angle="angle"
+            :color="color"
+            :colorFill="colorFillGradient"
+            :legend="true"
+            :legendValue="angle"
+            :progress="angle*progress/360"
+            :size="50"
+            :half="false"
+            :loading="false"
+            >
+                    
+    
+            </vue-ellipse-progress>
+                        <!-- <div class="ui  segment" v-bind:style="{backgroundColor: color , borderColor: color ,}">
+                            <sui-icon :name="icon"  style="color:white"></sui-icon>
+                        </div> -->
                     </div>
                     <div>
                         <div class="ui header">
@@ -20,7 +34,10 @@
                 </div>
             </div>
             <div class="ui  segment">
-                <a style="color: #0e7490;">View all</a>
+                <div >
+                    <sui-icon :name="icon" ></sui-icon>
+                    All historiques
+                </div>
             </div>
         </div>
     </div>
@@ -32,8 +49,15 @@
         icon:String,
         title:String,
         sub:String,
-        color:String
-    }
+        color:String,
+        angle:Number
+    }   ,     
+    data() {
+        return {
+            progress : 90,
+            
+        }
+    },
 }
 </script>
 <style src="../../../../assets/css/utilities.css"></style>
